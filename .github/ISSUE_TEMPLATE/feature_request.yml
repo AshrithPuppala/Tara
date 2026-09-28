@@ -1,0 +1,17 @@
+name: Feature or task
+description: Propose or claim a piece of work
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes: { label: What does this help the therapist do? }
+    validations: { required: true }
+  - type: textarea
+    id: idea
+    attributes: { label: Proposed approach }
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This strengthens the session -> analysis -> insight -> notes -> progress loop, and is not out of scope (see docs/PRODUCT.md)
