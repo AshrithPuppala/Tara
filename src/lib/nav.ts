@@ -6,6 +6,7 @@ import {
   Settings,
   Users,
   Activity,
+  LineChart,
   type LucideIcon,
 } from "lucide-react";
 
@@ -14,6 +15,7 @@ export type NavItem = { href: string; label: string; icon: LucideIcon };
 export const NAV: NavItem[] = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/sessions", label: "Sessions", icon: Activity },
+  { href: "/insights", label: "Insights", icon: LineChart },
   { href: "/children", label: "Children", icon: Users },
   { href: "/activities", label: "Activities", icon: Puzzle },
   { href: "/reports", label: "Reports", icon: FileText },

@@ -8,6 +8,7 @@ import type {
   Child,
   DeviceStatus,
   Session,
+  SessionTimeSeries,
   TherapistNote,
 } from "@/domain/types";
 
@@ -16,6 +17,7 @@ export interface Repository {
   getChild(id: string): Promise<Child | null>;
   listSessions(childId?: string): Promise<Session[]>;
   getSession(id: string): Promise<Session | null>;
+  getSessionTimeSeries(sessionId: string): Promise<SessionTimeSeries | null>;
   listNotes(childId?: string): Promise<TherapistNote[]>;
   listActivities(): Promise<Activity[]>;
   getDeviceStatus(): Promise<DeviceStatus>;

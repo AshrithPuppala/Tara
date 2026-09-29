@@ -20,7 +20,7 @@ export function Logo() {
         <path d="M12 19.5L7 24M20 19.5l5 4.5" />
       </svg>
       <span className="text-[15px] font-semibold leading-none text-ink">
-        Kathputra-Tact
+        Tara
       </span>
     </div>
   );

@@ -77,3 +77,26 @@ export const DeviceStatusSchema = z.object({
   lastSyncedAt: z.string(),
 });
 export type DeviceStatus = z.infer<typeof DeviceStatusSchema>;
+
+/**
+ * One moment of a session, as the puppet would report it (mock for now).
+ * Field names follow the sensors: 2x AS5600 (arm angles), FSR (grip), MPU6050 (tilt, tremor).
+ * Units are in the comments. Agree changes here with the whole team before editing.
+ */
+export const SamplePointSchema = z.object({
+  t: z.number(), // seconds since the session started
+  leftArmDeg: z.number(), // 0 = arm hanging down, ~120 = raised
+  rightArmDeg: z.number(),
+  gripN: z.number(), // approximate newtons
+  rollDeg: z.number(), // torso lean, left/right
+  tremorAmp: z.number(), // 0-1, energy in the tremor band (prototype unit)
+});
+export type SamplePoint = z.infer<typeof SamplePointSchema>;
+
+export const SessionTimeSeriesSchema = z.object({
+  sessionId: z.string(),
+  hz: z.number(), // samples per second
+  source: z.enum(["synthetic", "device"]),
+  points: z.array(SamplePointSchema),
+});
+export type SessionTimeSeries = z.infer<typeof SessionTimeSeriesSchema>;
